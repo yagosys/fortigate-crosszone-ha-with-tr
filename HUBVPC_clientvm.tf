@@ -14,8 +14,9 @@ resource "alicloud_instance" "client-vm" {
   internet_max_bandwidth_out = var.client_vm_internet_max_bandwidth_out=="1" ? 10 : null
   security_groups = alicloud_security_group.SecGroup.*.id
   instance_type = var.client_vm_instance_type
- instance_name              = "client-ubuntu-${random_string.random_name_post.result}"
+  instance_name              = "client-ubuntu-${random_string.random_name_post.result}"
   vswitch_id                 = alicloud_vswitch.internal_a_0.id
+  key_name          = alicloud_key_pair.example.key_name
   password= var.client_vm_password
   private_ip = var.client_vm_private_ip
   tags = {
