@@ -17,7 +17,7 @@ resource "alicloud_security_group_rule" "allow_all_tcp_ingress_ack1" {
 }
 
 resource "alicloud_cs_managed_kubernetes" "k8s_ack1" {
-  count                 = 1
+  count = var.ack1_vpc =="1" ? 1 :0
   name                  = "${var.k8s_name_prefix == "" ? format("%s-%s", var.example_name_ack1, format(var.number_format, count.index+1)) : format("%s-%s", var.k8s_name_prefix, format(var.number_format, count.index+1))}"
   availability_zone     = data.alicloud_zones.default.zones[0].id
   worker_vswitch_ids = [alicloud_vswitch.ack1_vswitch0.id,alicloud_vswitch.ack1_vswitch1.id]

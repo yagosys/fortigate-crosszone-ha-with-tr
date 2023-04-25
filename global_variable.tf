@@ -51,3 +51,8 @@ variable "fortiadc_vpc_linux" {
    type = string
    default = "0"
 }
+
+variable "client-vm" {
+   type = string
+   default = "0"
+}

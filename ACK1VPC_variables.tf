@@ -1,5 +1,9 @@
 //# common variables
 
+variable "ack1_vpc" {
+  default = "1"
+}
+
 variable "availability_zone" {
   description = "The available zone to launch ecs instance and other resources."
   default     = ""

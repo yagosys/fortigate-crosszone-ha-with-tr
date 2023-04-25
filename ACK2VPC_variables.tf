@@ -1,6 +1,10 @@
 //# common variables
 
 
+variable "ack2_vpc" {
+  default = "1"
+}
+
 variable "example_name_ack2" {
   default = "ack2"
 }

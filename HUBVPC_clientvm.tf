@@ -9,6 +9,7 @@ variable "fadLicense" {
 }
 
 resource "alicloud_instance" "client-vm" {
+  count = var.client-vm =="1" ? 1 :0
   depends_on = [alicloud_cen_transit_router_vpc_attachment.atta_fortiadc]
   image_id        = "ubuntu_18_04_x64_20G_alibase_20200521.vhd"
   internet_max_bandwidth_out = var.client_vm_internet_max_bandwidth_out=="1" ? 10 : null
