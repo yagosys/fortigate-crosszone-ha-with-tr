@@ -47,3 +47,7 @@ variable "client_vm_internet_max_bandwidth_out" {
    default = "0"
 }
 
+variable "fortiadc_vpc_linux" {
+   type = string
+   default = "0"
+}
